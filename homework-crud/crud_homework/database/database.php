@@ -48,7 +48,8 @@ function selectOnestudent($id) {
     $stmt = db()->prepare("SELECT * FROM `student` WHERE id = ?");
     if ($stmt) {
         $stmt->bindParam(1, $id);
-        return $stmt->execute();
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } else {
         echo "Prepare statement failed";
         return false;
