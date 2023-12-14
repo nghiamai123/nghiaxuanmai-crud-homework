@@ -1,4 +1,4 @@
-<?php require_once('partial/header.php'); ?>
+<?php require_once('partial/header.php');?>
     <div class="container p-4">
         <form action="update_model.php<?="?id=" . $_GET['id']?>" method="post">
             <div class="form-group">

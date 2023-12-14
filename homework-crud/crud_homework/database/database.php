@@ -18,6 +18,7 @@ try {
 }
 }
 
+
 /**
  * Create new student record
  */
@@ -50,7 +51,7 @@ function selectOnestudent($id) {
         return $stmt->execute();
     } else {
         echo "Prepare statement failed";
-        exit;
+        return false;
     };
 }
 
@@ -58,13 +59,13 @@ function selectOnestudent($id) {
  * Delete student by id
  */
 function deleteStudent($id) {
-    $stmt = db()->prepare("DELETE FROM `student` WHERE id = ?");
+    $stmt = db()->prepare("DELETE FROM `student` WHERE id = :id");
     if ($stmt) {
-        $stmt->bindParam(1, $id);
+        $stmt->bindParam(':id', $id);
         return $stmt->execute();
     } else {
         echo "Prepare statement failed";
-        exit;
+        return false;
     }
 }
 
